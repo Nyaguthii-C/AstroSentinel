@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <!-- Include any stylesheets or scripts if needed -->
+  <script defer src="signup.js"></script>
+</head>
+<body>
+  <h1>Signup Page</h1>
+  <form id="signupForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="signup()">Signup</button>
+  </form>
+
+  <script>
+    async function signup() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const formData = {
+        username,
+        password,
+      };
+
+      try {
+        const response = await fetch('/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error during signup:', error);
+      }
+    }
+  </script>
+</body>
+</html>
