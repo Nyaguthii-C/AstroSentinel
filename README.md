@@ -11,3 +11,9 @@ on the **Back-end**, will implement feature to enable user login/sign-up and reg
 
 - **index.html** - Displays simple leaflet map
 - **setup/** - directory for initial Back-end configuration
+
+## Usage
+1. git clone [the rep0sitory]  
+2. Navigate to setup/  
+3. Run command _npm install_ to install dependencies from package.json  
+4. Run command _node server.js_ to get the app running on port 3000   
