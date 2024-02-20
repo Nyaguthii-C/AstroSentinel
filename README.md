@@ -10,3 +10,4 @@ This project's architecture is such that to provide a ui with an **interactive m
 on the **Back-end**, will implement feature to enable user login/sign-up and registered **user data collection**(markers). Markers will take in info such as **sqm reading: value** or **estimated bortle class** for the user's location. Marker to be oon precise user's location.
 
 - **index.html** - Displays simple leaflet map
+- **setup/** - directory for initial Back-end configuration
