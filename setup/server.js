@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./users');
+const Marker = require('./markers'); // Import marker model
 const bcrypt = require('bcrypt');
 const ejs = require('ejs');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Corrected the typo in 'cons' and added a default value for PORT
+const PORT = process.env.PORT || 3000; 
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -21,11 +22,25 @@ require('./db');
 
 // Define routes
 
-// display simple leaflet map
+// display landing page
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('landing')
 });
 
+//display map with the added markers
+app.get('/map', (req, res) => {
+    res.render('map')
+});
+
+// display measurements guide
+app.get('/guide', (req, res) => {
+   res.render('guide')
+});
+
+// display map for adding  markers
+app.get('/index', (req, res) => {
+    res.render('index')
+});
 // Display login page
 app.get('/login', (req, res) => {
   res.render('login');
@@ -45,6 +60,17 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Retrieve markers
+app.get('/get-marker', async (req, res) => {
+  try {
+    const markers = await Marker.find();
+    res.json(markers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 // Add a new user
 app.post('/users', async (req, res) => {
@@ -137,6 +163,28 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// add markers to map
+app.post('/add-marker', async (req, res) => {
+    try {
+        const { lat, lng, statement } = req.body;
+
+        // Create a new marker instance
+        const newMarker = new Marker({
+            lat,
+            lng,
+            statement,
+        });
+
+        // Save the marker data to your "markers" collection in MongoDB
+        await newMarker.save();
+
+        // Respond with a success message
+        res.status(200).json({ message: 'Marker added successfully' });
+    } catch (error) {
+        console.error('Error during marker addition:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 // Connect to the server
 app.listen(PORT, () => {
