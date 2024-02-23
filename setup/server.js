@@ -166,13 +166,14 @@ app.post('/login', async (req, res) => {
 // add markers to map
 app.post('/add-marker', async (req, res) => {
     try {
-        const { lat, lng, statement } = req.body;
+        const { lat, lng, SQM_Reading, Bortle_Class } = req.body;
 
         // Create a new marker instance
         const newMarker = new Marker({
             lat,
             lng,
-            statement,
+            SQM_Reading,
+            Bortle_Class
         });
 
         // Save the marker data to your "markers" collection in MongoDB
