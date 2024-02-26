@@ -1,19 +1,52 @@
+# AstroSentinel 🌌🛡️
 
-# AstroSentinel  
+AstroSentinel is an Express.js web application that combines HTML, CSS, and JavaScript to provide an interactive map displaying light pollution levels. The map showcases markers with SQM measurements and Bortle scale values, allowing users to visualize and contribute to a collective understanding of light pollution.
 
-This project's architecture is such that to provide a ui with an **interactive map** that users can add **markers** to so as to map lLight Pollution measurements.  
-**A landing page** with a **rotating globe** or **heatmap** and an explanation on:  
-    -  What is light pollution
-    -  Effects of light pollution
-    - Mitigation
-    - Why take part in mapping light pollution (citizen science project)  
-on the **Back-end**, will implement feature to enable user login/sign-up and registered **user data collection**(markers). Markers will take in info such as **sqm reading: value** or **estimated bortle class** for the user's location. Marker to be oon precise user's location.
+## Project Structure 📁
+The directories and files in this project are:  
+- **config/:** Contains database configuration files (`db.js`).
+- **models/:** Houses Mongoose models for interacting with the database(`users.js`, `markers.js`)
+- **routes/:** Includes route files, separating different functionalities into modular components.
+- **views/:** Contains the views for rendering the project's front-end(.ejs, .js and .css files) 
+- **server.js:** The main entry point of the application.
+- **package.json and package-lock.json:** list project dependencies and their versions.
 
-- **index.html** - Displays simple leaflet map
-- **setup/** - directory for initial Back-end configuration
+## Database Configuration 🛠️
 
-## Usage
-1. git clone [the rep0sitory]  
-2. Navigate to setup/  
-3. Run command _npm install_ to install dependencies from package.json  
-4. Run command _node server.js_ to get the app running on port 3000   
+The database configuration is handled in the `config/db.js` file. This file uses the `dotenv` package to load environment variables, including the database connection string. To set up the database configuration:
+
+1. **Create an .env file:**
+   - In the root directory, create a file named `.env`.
+   - Add the following content, replacing `your_actual_database_url_with_password` with your MongoDB connection string:
+
+     ```plaintext
+     DB_URL=your_actual_database_url_with_password
+     ```
+
+2. **Install dependencies:**
+   - Run the following command to install the required packages:
+
+     ```bash
+     npm install
+     ```
+
+3. **Start the application:**
+   - Run the application using the following command:
+
+     ```bash
+     node server.js
+     ```
+
+   The application should now connect to the database using the provided connection string.
+
+## Contributing 🤝
+
+If you would like to contribute to this project:
+
+1. Fork the repository.
+2. Clone your forked repository to your local machine.
+3. Set up your local environment by following the steps in the Database Configuration section.
+4. Make changes and improvements.
+5. Create a pull request to propose your changes.
+
+Ad Astra! 💫
