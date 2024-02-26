@@ -1,0 +1,22 @@
+{
+  "name": "AstroSentinel",
+  "version": "1.0.0",
+  "description": "ExpressJS app for mapping light pollution levels",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Carol Nyaguthii",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "3.1.9",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  },
+  "engines": {
+    "node": "14.17.6",
+    "npm": "6.14.15"
+  }
+}
