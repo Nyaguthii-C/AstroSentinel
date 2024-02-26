@@ -9,7 +9,7 @@ The directories and files in this project are:
 - **routes/:** Includes route files, separating different functionalities into modular components.
 - **views/:** Contains the views for rendering the project's front-end(.ejs, .js and .css files) 
 - **server.js:** The main entry point of the application.
-- **package.json and package-lock.json:** list project dependencies and their versions.
+- **package.json and package-lock.json:** list of project dependencies and their versions.
 
 ## Database Configuration 🛠️
 
