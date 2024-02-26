@@ -1,6 +1,6 @@
 # AstroSentinel 🌌🛡️
 
-AstroSentinel is an Express.js web application that combines HTML, CSS, and JavaScript to provide an interactive map displaying light pollution levels. The map showcases markers with SQM measurements and Bortle scale values, allowing users to visualize and contribute to a collective understanding of light pollution.
+AstroSentinel is an Express.js web application that combines HTML, CSS, and JavaScript to provide an interactive map displaying light pollution levels. The map showcases markers with SQM(Sky Quality Meter) measurements and Bortle scale values, allowing users to visualize and contribute to a collective understanding of light pollution.
 
 ## Project Structure 📁
 The directories and files in this project are:  
