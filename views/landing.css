@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: cursive;
   overflow-x: hidden;
   background-color: #0d0c0c;
   color: #C0C0C0;
@@ -51,7 +50,6 @@ header button {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 15px;
-  font-family: cursive;
 }
 
 header button:hover {
