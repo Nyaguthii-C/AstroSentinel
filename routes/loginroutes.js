@@ -18,10 +18,10 @@ router.post('/login', async (req, res) => {
   try {
     console.log('Received login request:', req.body);
 
-    const { username, password, email } = req.body;
-    console.log('Captured values:', username, password, email);
+    const { usernameoremail, password} = req.body;
+    console.log('Captured values:', usernameoremail, password);
 
-    if (!username && !email) {
+    if (!usernameoremail) {
       return res.status(400).json({ error: 'Username or email is required' });
     }
 
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
     }
 
     // Check if the user exists based on username or email
-    const user = await User.findOne({ $or: [{ username }, { email }] });
+    const user = await User.findOne({ $or: [{ username: usernameoremail }, { email: usernameoremail }] });
 
     if (!user) {
       return res.status(401).json({ error: 'Invalid username or email' });
