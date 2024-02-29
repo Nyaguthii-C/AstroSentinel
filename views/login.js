@@ -1,14 +1,12 @@
 async function login() {
     console.log('Login button clicked');
 
-    const username = document.getElementById('username').value;
+    const usernameoremail = document.getElementById('usernameoremail').value;
     const password = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
 
     const formData = {
-        username,
+        usernameoremail,
         password,
-        email,
     };
 
     try {
