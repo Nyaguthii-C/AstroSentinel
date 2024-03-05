@@ -13,11 +13,11 @@ router.get('/signup', (req, res) => {
 // signup route for users
 router.post('/signup', async (req, res) => {
   try {
-    console.log('Received signup request:', req.body);
+    //console.log('Received signup request:', req.body);
 
     const { username, password, email } = req.body;
 
-    console.log('Captured values:', username, password, email);
+    //console.log('Captured values:', username, password, email);
 
     if (!username || !password || !email) {
       return res.status(400).json({ error: 'Username, password and email are required' });

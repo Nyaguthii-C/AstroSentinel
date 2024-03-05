@@ -16,10 +16,10 @@ router.get('/login', (req, res) => {
 // user Login route
 router.post('/login', async (req, res) => {
   try {
-    console.log('Received login request:', req.body);
+    //console.log('Received login request:', req.body);
 
     const { usernameoremail, password} = req.body;
-    console.log('Captured values:', usernameoremail, password);
+    //console.log('Captured values:', usernameoremail, password);
 
     if (!usernameoremail) {
       return res.status(400).json({ error: 'Username or email is required' });
