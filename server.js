@@ -8,7 +8,7 @@ const usersRoutes = require('./routes/usersroutes');
 const pageRoutes = require('./routes/pageroutes')
 
 const app = express();
-const PORT = 80; 
+const PORT = process.env.PORT || 3000; 
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
