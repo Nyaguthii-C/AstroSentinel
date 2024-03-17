@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const markerSchema = new mongoose.Schema({
     lat: { type: Number, required: true },
     lng: { type: Number, required: true },
-    SQM_Reading: { type: String, required: true },
+    SQM_Reading: { type: String },
     Bortle_Class: { type: String }
 });
 

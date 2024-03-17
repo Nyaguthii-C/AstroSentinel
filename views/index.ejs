@@ -57,10 +57,10 @@
             if (confirmAdd) {
                 var SQM_Reading = prompt("Enter the SQM Reading: ");
                               
-                var Bortle_Class = prompt("Enter the Bortle Class Reading (Optional): ");
+                var Bortle_Class = prompt("Enter the Bortle Class Reading: ");
                 
                 // verify the readings input
-                if ((SQM_Reading >= 16 && SQM_Reading <= 22) && (!Bortle_Class || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
+                if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (Bortle_Class === undefined || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
 
                     // Send request to server to save the marker
                     try {
