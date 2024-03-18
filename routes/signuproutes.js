@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/users');
 const bcrypt = require('bcrypt');
 const ejs = require('ejs');
+const limiter = require('./ratesLimit')
 
 
 // Display signup page
@@ -10,8 +11,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// signup route for users
-router.post('/signup', async (req, res) => {
+// signup route for users with rate limit
+router.post('/signup', limiter, async (req, res) => {
   try {
     //console.log('Received signup request:', req.body);
 
