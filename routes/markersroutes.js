@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Marker = require('../models/markers'); // Import marker model
+const limiter = require('./ratesLimit')
 
 
 // Retrieve markers
@@ -14,8 +15,8 @@ router.get('/get-marker', async (req, res) => {
   }
 });
 
-// add markers to map
-router.post('/add-marker', async (req, res) => {
+// add markers to map, with rate limit
+router.post('/add-marker', limiter, async (req, res) => {
     try {
         const { lat, lng, SQM_Reading, Bortle_Class } = req.body;
 

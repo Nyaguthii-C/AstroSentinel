@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const limiter = require('./ratesLimit')
+
 
 // display landing page
 router.get('/', (req, res) => {
@@ -16,8 +18,8 @@ router.get('/guide', (req, res) => {
    res.render('guide')
 });
 
-// display map for adding  markers
-router.get('/index', (req, res) => {
+// display map for adding  markers with rate limit
+router.get('/index', limiter, (req, res) => {
     res.render('index')
 });
 

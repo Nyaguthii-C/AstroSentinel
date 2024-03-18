@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const ejs = require('ejs');
 
 
-
 // Display login page
 router.get('/login', (req, res) => {
   res.render('login');

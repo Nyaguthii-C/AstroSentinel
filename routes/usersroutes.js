@@ -2,10 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
+const limiter = require('./ratesLimit')
 
 
 // Retrieve users from database
-router.get('/users', async (req, res) => {
+router.get('/users', limiter, async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
