@@ -32,7 +32,7 @@ router.post('/add-marker', limiter, async (req, res) => {
         await newMarker.save();
 
         // Respond with a success message
-        res.status(200).json({ message: 'Marker added successfully' });
+        res.status(200).json({ message: 'Marker added successfully. Thank You for your Contribution!' });
     } catch (error) {
         console.error('Error during marker addition:', error);
         res.status(500).json({ error: 'Internal server error' });
