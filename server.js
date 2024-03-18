@@ -6,15 +6,16 @@ const markersRoutes = require('./routes/markersroutes');
 const signupRoutes = require('./routes/signuproutes');
 const usersRoutes = require('./routes/usersroutes');
 const pageRoutes = require('./routes/pageroutes')
-
 const app = express();
 const PORT = process.env.PORT || 3000; 
+
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 app.use(express.static('views'));
+
 // Middleware to handle JSON bodies
 app.use(express.json());
 
