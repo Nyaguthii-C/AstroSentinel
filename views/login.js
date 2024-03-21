@@ -23,7 +23,7 @@ async function login() {
     console.log(data);
     if (data.message) {
             // Display the success message to the user
-            alert('Login Successful');
+            //alert('Login Successful');
             // redirect user to index page to interact with map and markers 
             window.location.href = '/index';  
         } else {
