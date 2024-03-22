@@ -18,14 +18,15 @@ router.get('/get-marker', async (req, res) => {
 // add markers to map, with rate limit
 router.post('/add-marker', limiter, async (req, res) => {
     try {
-        const { lat, lng, SQM_Reading, Bortle_Class } = req.body;
+        const { lat, lng, SQM_Reading, Bortle_Class, Reading_Day } = req.body;
 
         // Create a new marker instance
         const newMarker = new Marker({
             lat,
             lng,
             SQM_Reading,
-            Bortle_Class
+            Bortle_Class,
+            Reading_Day
         });
 
         // Save the marker data to your "markers" collection in MongoDB
