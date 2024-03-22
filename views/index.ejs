@@ -37,7 +37,7 @@
                     // Check if both latitude and longitude are defined
                     if (lat !== undefined && lng !== undefined) {
                         const marker = L.marker([lat, lng]).addTo(map);
-                        marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class).openPopup();
+                        marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
                     } else {
                         console.error('Invalid marker data:', markerData);
                     }
@@ -59,6 +59,8 @@
                               
                 var Bortle_Class = prompt("Enter the Bortle Class Reading: ");
                 
+                var Reading_Day = prompt("Enter the date (YYYY-MM-DD): ");
+
                 // verify the readings input
                 if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (Bortle_Class === undefined || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
 
@@ -73,7 +75,8 @@
                                 lat,
                                 lng,
                                 SQM_Reading,
-                                Bortle_Class 
+                                Bortle_Class,
+                                Reading_Day
                             }),
                         }); 
 
@@ -83,7 +86,7 @@
                         // Add a marker to the map if the server successfully saved it
                         if (response.ok) {
                             var marker = L.marker([lat, lng]).addTo(map);
-                            marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class).openPopup();
+                            marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
                             alert('Marker added successfully!')
                         } else {
                             alert('Failed to save marker. Please try again.');

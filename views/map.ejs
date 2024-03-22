@@ -32,12 +32,12 @@
             .then(markers => {
                 // Create markers based on the fetched data
                 markers.forEach(markerData => {
-                    const { lat, lng, SQM_Reading, Bortle_Class } = markerData;
+                    const { lat, lng, SQM_Reading, Bortle_Class, Reading_Day } = markerData;
                     console.log(markerData);
                     // Check if both latitude and longitude are defined
                     if (lat !== undefined && lng !== undefined) {
                         const marker = L.marker([lat, lng]).addTo(map);
-                        marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class).openPopup();
+                        marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br><b>Date:</> ' + Reading_Day).openPopup();
                     } else {
                         console.error('Invalid marker data:', markerData);
                     }
