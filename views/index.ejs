@@ -32,7 +32,7 @@
             .then(markers => {
                 // Create markers based on the fetched data
                 markers.forEach(markerData => {
-                    const { lat, lng, SQM_Reading, Bortle_Class } = markerData;
+                    const { lat, lng, SQM_Reading, Bortle_Class, Reading_Day } = markerData;
                     console.log(markerData);
                     // Check if both latitude and longitude are defined
                     if (lat !== undefined && lng !== undefined) {
@@ -60,6 +60,13 @@
                 var Bortle_Class = prompt("Enter the Bortle Class Reading: ");
                 
                 var Reading_Day = prompt("Enter the date (YYYY-MM-DD): ");
+
+                //verify date in input
+                if (!Reading_Day) {
+                    alert("Please select a date.");
+                    return;
+                }
+
 
                 // verify the readings input
                 if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (Bortle_Class === undefined || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
