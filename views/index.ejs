@@ -61,7 +61,7 @@
                 
                 var Reading_Day = prompt("Enter the date (YYYY-MM-DD): ");
 
-                //verify date in input
+                // verify date in input
                 if (!Reading_Day) {
                     alert("Please select a date.");
                     return;
@@ -70,6 +70,15 @@
 
                 // verify the readings input
                 if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (Bortle_Class === undefined || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
+
+                    
+                    // check if  date  format is correct
+                    var dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+                    if (!Reading_Day.match(dateRegex)) {
+                        alert("Please enter the date in the format YYYY-MM-DD.");
+                        return;
+                    }
+
 
                     // Send request to server to save the marker
                     try {
