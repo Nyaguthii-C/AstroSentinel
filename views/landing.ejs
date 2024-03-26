@@ -10,81 +10,25 @@
 </head>
 <body>
 
-  <header>
+  <nav class="header">
    <div id="name">AstroSentinel</div>
-   <a href="/login"> <button>Login</button></a>
-   <a href="/signup"> <button>Signup</button></a>
-   <a href="/guide"> <button>Measurement Guide</button></a>
-  </header>
+   <ul class="nav-links">
+     <li><a class="active" href="/">Home</a></li>
+     <li><a href="/about">About</a></li>
+     <li><a href="/measurement"> Measurement Guide</a></li>
+     <li><a href="/login">Login</a></li>
+     <li><a href="/signup">Signup</a></li>
+   </ul>
+  </nav>
   <div id="map"
     <%- include('map.ejs') %>
   </div>
-  <p id="offer-title"><i>Harmony in Darkness: AstroSentinel - Mapping Solutions for a Light-Pollution-Free Ecosystem<i></p>
+  <p id="offer-title"><i>Harmony in Darkness: AstroSentinel - Mapping Solutions for a Light-Pollution-Free Ecosystem</i></p>
   <section style="background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d'); background-size: cover; height: 400px;" class="offer-item">
-    <h1 id="offer-title">About</h1>
+    <!--<h1 id="offer-title">About</h1>-->
     <p>Welcome to AstroSentinel, a platform dedicated to exploring and understanding light pollution's impact on our night sky. Our mission is to provide a space where enthusiasts, researchers, and concerned citizens can come together to contribute, learn, and raise awareness about the effects of light pollution.</p>
   </section>
-
-  <section style="background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d'); background-size: cover;">
-    <div id="what-we-offer">
-        <h1 id="offer-title">What We Offer</h1>
-        <div class="offer-item">
-          <h3>1. Data Visualization</h3>
-          <p> Explore interactive data visualizations depicting light pollution levels across different regions. Gain insights into the extent of artificial light and its impact on celestial visibility.</p>
-        </div>
-
-        <div class="offer-item">
-          <h3>2.Data Contribution</h3>
-          <p> Join the AstroSentinel community and contribute your own light pollution measurements. Help build a comprehensive dataset to further our understanding of how artificial light at night affects the environment.</p>
-        </div>
-
-        <div class="offer-item">       
-          <h3>3. Learning and Education</h3>
-          <p>Access resources and guides on light pollution monitoring techniques. Learn why monitoring light pollution is crucial for preserving natural ecosystems and promoting sustainable lighting practices.</p>
-          </div>
-    </div> 
-  </section>
-
-  <section style="background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d'); background-size: cover;">
-
-
-    <div class="offer-item">
-      <h1 id="offer-title">Log and Obtain Measurements</h2>
-
-      <div class="offer-item">
-        <h3>1. Why Contribute to AstroSentinel?</h3>
-        <p>By contributing your measurements, you play a crucial role in:</p>
-        <ul>
-          <li>* Building a comprehensive database for researchers and enthusiasts.</li>
-          <li>* Enhancing our understanding of light pollution's impact on the night sky.</li>
-          <li>* Supporting global efforts to address light pollution and promote sustainable lighting practices.</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>2. Obtain Measurements</h3>
-        <p>Curious about light pollution levels in your area? Follow these steps to obtain measurements:</p>
-        <ul>
-          <li>Step 1: Download a light meter app or use specialized equipment.</li>
-          <li>Step 2: Find a dark location away from artificial lights.</li>
-          <li>Step 3: Follow our <a href="/guide">guide page</a> to capture accurate measurements.</li>
-          <li>Step 4: Contribute to AstroSentinel by submitting your findings.</li>
-        </ul>
-      </div>
-     
-      <div>
-        <h3>3. Log Your Measurements</h3>
-        <ul>  
-          <li>Step 1: Set up your equipment.</li>
-          <li>Step 2: Choose a location with minimal light pollution.</li>
-          <li>Step 3: Follow our <a href="/guide">guide</a> to record accurate measurements.</li>
-          <li>Step 4: <a href="/signup">Sign up</a> on AstroSentinel.</li>
-          <li>Step 5: <a href="/login">Log in</a> to AstroSentinel and submit your data.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
+  
   <footer id="footer">
     <h4>Find Us On</h4>
     <a href="https://github.com/Nyaguthii-C" target="_blank">
@@ -93,7 +37,7 @@
     <a href="https://linkedin.com/in/nyaguthii-carol-a41659239" target="_blank">
         <i class="fab fa-linkedin" style="color: #ffffff;"></i> LinkedIn
     </a> 
-   <span class="custom-margin"> <i class="far fa-envelope"></i>Email: carol.nyaguthii@kenyanastro.tech</span>
+   <span class="custom-margin"> <i class="far fa-envelope"></i>Email: nyaguthiigc@gmail.com</span>
   </footer>
 
 </body>
