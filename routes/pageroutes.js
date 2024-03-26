@@ -23,5 +23,16 @@ router.get('/index', limiter, (req, res) => {
     res.render('index')
 });
 
+// display about  page
+router.get('/about', (req, res) => {
+    res.render('about')
+});
+
+// display measurements logging guide
+router.get('/measurement', (req, res) => {
+    res.render('measurement')
+});
+
+
 
 module.exports = router;
