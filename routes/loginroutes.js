@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require('../models/users');
 const bcrypt = require('bcrypt');
 const ejs = require('ejs');
+const limiter = require('./ratesLimit')
 
 
 // Display login page
@@ -13,7 +14,7 @@ router.get('/login', (req, res) => {
 
 
 // user Login route
-router.post('/login', async (req, res) => {
+router.post('/login', limiter, async (req, res) => {
   try {
     //console.log('Received login request:', req.body);
 
