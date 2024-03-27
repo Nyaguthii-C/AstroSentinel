@@ -69,7 +69,7 @@
 
 
                 // verify the readings input
-                if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (Bortle_Class === undefined || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
+                if ((!SQM_Reading || (SQM_Reading >= 16 && SQM_Reading <= 22)) && (!Bortle_Class || (Bortle_Class >= 1  && Bortle_Class <= 9))) {
 
                     
                     // check if  date  format is correct
