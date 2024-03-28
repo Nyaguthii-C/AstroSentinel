@@ -6,7 +6,7 @@ const limiter = require('./ratesLimit')
 
 
 // Retrieve users from database
-router.get('/users', limiter, async (req, res) => {
+/** router.get('/users', limiter, async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -14,9 +14,10 @@ router.get('/users', limiter, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+**/
 
 // Add a new user to database
-router.post('/users', async (req, res) => {
+router.post('/users', limiter, async (req, res) => {
   try {
     const newUser = new User(req.body);
     await newUser.save();
