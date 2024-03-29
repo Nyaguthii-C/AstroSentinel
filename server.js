@@ -6,6 +6,7 @@ const markersRoutes = require('./routes/markersroutes');
 const signupRoutes = require('./routes/signuproutes');
 const usersRoutes = require('./routes/usersroutes');
 const pageRoutes = require('./routes/pageroutes')
+const verificationRoutes = require('./routes/verificationRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000; 
 
@@ -39,6 +40,8 @@ app.use(usersRoutes);
 // use maps and guide routes
 app.use(pageRoutes);
 
+// use verification routes
+app.use(verificationRoutes)
 
 
 // Connect to the server
