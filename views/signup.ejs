@@ -49,9 +49,9 @@
         console.log(data);
         if (data.message) {
             // Display the success message to the user
-            alert('Account created successfully');
+            alert('Account created successfully. Please check your email for verification instructions');
             // redirect user to login page
-            window.location.href = '/login';
+            //window.location.href = '/login';
         } else {
             // Check for error messages
             if (data.error) {
