@@ -116,7 +116,7 @@ async function sendVerificationEmail(email, verificationToken) {
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
-      subject: 'Email Verification: AstroSentinel',
+      subject: 'AstroSentinel - Email Verification',
       text: `Click the following link to verify your email: https://www.kenyanastro.tech/verify/${verificationToken}`,
     };
 
