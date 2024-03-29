@@ -40,12 +40,18 @@ router.post('/login', limiter, async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-      // Login successful
-      return res.json({ message: 'Login successful' });
+      // Check if the user's email is verified
+      if (user.isEmailVerified) {
+        // Login successful
+        return res.json({ message: 'Login successful' });
+      } else {
+        // Email not verified
+        return res.status(401).json({ error: 'Please verify your email before logging in' });
+      }
     } else {
-      // Invalid credentials
-      return res.status(401).json({ error: 'Invalid password' });
-    }
+      // Incorrect password
+      return res.status(401).json({ error: 'Incorrect password' });
+    }  
   } catch (error) {
     console.error('Error during login:', error);
     return res.status(500).json({ error: 'Internal server error' });
