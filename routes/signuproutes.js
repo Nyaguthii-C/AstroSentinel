@@ -4,16 +4,44 @@ const User = require('../models/users');
 const bcrypt = require('bcrypt');
 const ejs = require('ejs');
 const limiter = require('./ratesLimit')
-const nodemailer = require('nodemailer');
+//const nodemailer = require('nodemailer');
 const validator = require('validator');
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
+const sendVerificationEmail = require('./sendVerificationEmail');
+const generateVerificationToken = require('./verificationToken');
 
 
 // Display signup page
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
+// Route to handle resending of verification email
+router.post('/signup/resend-verification-email', async (req, res) => {
+  try {
+    // Extract email from request body
+    const { email } = req.body;
+
+    // Check if email exists
+    if (!email) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    // Generate a new verification token
+    const verificationToken = generateVerificationToken(email);
+
+    // Send verification email with the new token
+    await sendVerificationEmail(email, verificationToken);
+
+    // Respond with success message
+    res.status(200).json({ message: 'Verification email resent successfully' });
+  } catch (error) {
+    console.error('Error resending verification email:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 // signup route for users with rate limit
 router.post('/signup', limiter, async (req, res) => {
@@ -65,67 +93,6 @@ router.post('/signup', limiter, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-// Function to generate a verification token using bcrypt
-function generateVerificationToken(username, email) {
-  // Generate a random string for additional randomness
-  const randomString = Math.random().toString(36).substring(7);
-  
-  const tokenData = username + email + randomString;
-
-  // Hash the token data using bcrypt
-  const verificationToken = bcrypt.hashSync(tokenData, 10);
-
-  return verificationToken;
-}
-
-// Function to send a verification email using Gmail
-async function sendVerificationEmail(email, verificationToken) {
-  try {
-    const oauth2Client = new OAuth2(
-      process.env.CLIENT_ID,
-      process.env.CLIENT_SECRET,
-      "https://developers.google.com/oauthplayground"
-    );
-
-    oauth2Client.setCredentials({
-      refresh_token: process.env.REFRESH_TOKEN
-    });
-
-    const accessToken = await new Promise((resolve, reject) => {
-      oauth2Client.getAccessToken((err, token) => {
-        if (err) {
-          reject("Failed to create access token :(");
-        }
-        resolve(token);
-      });
-    });
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: process.env.EMAIL,
-        accessToken,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN
-      }
-    });
-
-    const mailOptions = {
-      from: process.env.EMAIL,
-      to: email,
-      subject: 'AstroSentinel - Email Verification',
-      text: `Click the following link to verify your email: https://www.kenyanastro.tech/verify/${verificationToken}`,
-    };
-
-    await transporter.sendMail(mailOptions);
-  } catch (error) {
-    console.error('Failed to send verification email:', error);
-    throw new Error('Failed to send verification email');
-  }
-}
 
 
 module.exports = router;
