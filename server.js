@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
+// Trust the first proxy in front of Express
+app.set('trust proxy', 1);
+
 app.use(express.static('views'));
 
 // Middleware to handle JSON bodies
