@@ -28,11 +28,26 @@ router.post('/signup/resend-verification-email', async (req, res) => {
       return res.status(400).json({ error: 'Email is required' });
     }
 
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Set isEmailVerified status to false
+    user.isEmailVerified = false;
+
+
     // Generate a new verification token
-    const verificationToken = generateVerificationToken(email);
+    const verificationToken = generateVerificationToken(user.username, user.email);
+    user.verificationToken = verificationToken;
+
+    // Save the updated user record
+    await user.save();
 
     // Send verification email with the new token
-    await sendVerificationEmail(email, verificationToken);
+    await sendVerificationEmail(user.email, verificationToken);
 
     // Respond with success message
     res.status(200).json({ message: 'Verification email resent successfully' });
