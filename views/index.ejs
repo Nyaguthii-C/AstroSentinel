@@ -15,6 +15,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         crossorigin=""></script>
 
+    <!-- Bortle scale from sqm value-->
+    <script src="bortleCalculator.js"></script>
+    
     <!-- Initialize the map -->
     <script>
         // Initialize the map
@@ -37,7 +40,7 @@
                     // Check if both latitude and longitude are defined
                     if (lat !== undefined && lng !== undefined) {
                         const marker = L.marker([lat, lng]).addTo(map);
-                        marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
+                        marker.bindPopup('<b>SQM Reading (mag/arcsec²) :</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
                     } else {
                         console.error('Invalid marker data:', markerData);
                     }
@@ -53,12 +56,21 @@
             var lng = e.latlng.lng;
 
             var confirmAdd = confirm("Do you want to add a marker at this location?");
+            var hasSQM = confirm("Do you have an SQM?");
 
             if (confirmAdd) {
-                var SQM_Reading = prompt("Enter the SQM Reading: ");
-                              
-                var Bortle_Class = prompt("Enter the Bortle Class Reading: ");
-                
+                if (hasSQM) {
+                    var SQM_Reading = prompt("Enter the SQM Reading: ");
+                    var Bortle_Class = getBortle(SQM_Reading);
+                    
+                    if (!SQM_Reading) {
+                         alert("Please enter SQM reading");
+                         return;
+                    }
+
+                } else {              
+                    var Bortle_Class = prompt("Enter the Bortle Class Reading: ");
+                }
                 var Reading_Day = prompt("Enter the date (YYYY-MM-DD): ");
 
                 // verify date in input
