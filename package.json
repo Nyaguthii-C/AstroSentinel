@@ -1,10 +1,14 @@
 {
   "name": "AstroSentinel",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "ExpressJS app for mapping light pollution levels",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nyaguthii-C/AstroSentinel.git"
   },
   "author": "Carol Nyaguthii",
   "license": "MIT",
