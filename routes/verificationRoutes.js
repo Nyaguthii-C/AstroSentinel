@@ -9,6 +9,9 @@ router.get('/verify/:token', async (req, res) => {
     // Extract the verification token from the URL parameters
     const verificationToken = req.params.token;
 
+    // --Log the received token for debugging purposes
+    console.log('Received verification token:', verificationToken);
+
     // Find the user with the matching verification token
     const user = await User.findOne({ verificationToken });
 
@@ -18,7 +21,12 @@ router.get('/verify/:token', async (req, res) => {
       user.verificationToken = undefined; // Clear the verification token
       await user.save();
       res.redirect('/login'); // Redirect to the login page or any other page
+
+      // --Log successful verification
+      console.log('User email verified successfully');
     } else {
+      // --Log invalid verification token
+      console.error('Invalid verification token:', verificationToken);
       res.status(404).json({ error: 'Invalid verification token' });
     }
   } catch (error) {
