@@ -149,3 +149,25 @@ nav {
   background-color: #4caf50;
 
 }
+
+#offer-item-container {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-rows: repeat(2,minmax(0,1fr));
+  column-gap: 8rem;
+  row-gap: 5rem;
+
+}
+
+#offer-item-listing { 
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 700px) {
+  #offer-item-container {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+
+  }
+}
