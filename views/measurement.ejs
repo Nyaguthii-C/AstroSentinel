@@ -5,29 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Measurement Logging Guide</title>
 
-<link rel="stylesheet" href="landing.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
-
-  <nav class="header">
-   <div id="name">AstroSentinel</div>
-   <ul class="nav-links">
-     <li><a href="/">Home</a></li>
-     <li><a href="/about">About</a></li>
-     <li><a class="active" href="/measurement">Measurements</a></li>
-     <li><a href="/login">Login</a></li>
-     <li><a href="/signup">Signup</a></li>
-   </ul>
-  </nav>
+  <div class="topnav" id="myTopnav">
+    <a id="name">AstroSentinel</a>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Resources
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">About Light pollution</a>
+        <a href="/guide">Measurents and Tools</a>
+        <a href="/measurement" class="active">Submitting data on Astrosentinel</a>
+      </div>
+    </div>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
 
   <section style="background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d'); background-size: cover;">
-
-    <h1 id="offer-title">Log and Obtain Measurements</h2>
     
-    <div class="offer-item" id="offer-item-container">
-
-      <div class="offer-item" id="offer-item-listing">
+    <div id="offer-item-container">
+      <h1>Obtain and Log Measurements</h1>
+      <div class="offer-item">
         <h3>1. Why Contribute to AstroSentinel?</h3>
         <p>By contributing your measurements, you play a crucial role in:</p>
         <ul>
@@ -37,7 +43,7 @@
         </ul>
       </div>
 
-      <div id="offer-item-listing">
+      <div class="offer-item">
         <h3>2. Obtain Measurements</h3>
         <p>Curious about light pollution levels in your area? Follow these steps to obtain measurements:</p>
         <ul>
@@ -48,7 +54,7 @@
         </ul>
       </div>
 
-      <div id="offer-item-listing">
+      <div class="offer-item">
         <h3>3. Log Your Measurements</h3>
         <ul>
           <li>Step 1: <a href="/signup">Sign up</a> on AstroSentinel.</li>
@@ -57,6 +63,17 @@
       </div>
     </div>
   </section>
+
+  <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+  </script>
 
   <footer id="footer">
     <span> The Kenyan Astro © 2024</span>

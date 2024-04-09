@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Measurement Logging Guide</title>
-     <link rel="stylesheet" href="guide.css">
+    <link rel="stylesheet" href="guide.css">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 
 <body>
+      <div class="topnav" id="myTopnav">
+    <a id="name">AstroSentinel</a>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Resources
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">About Light pollution</a>
+        <a href="/guide" class="active" >Measurents and Tools</a>
+        <a href="/measurement">Submitting data on Astrosentinel</a>
+      </div>
+    </div>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
     <div class="guide-container">
         <h1>Measurement Logging Guide</h1>
 
@@ -50,9 +71,28 @@
                   input the values as prompted. That will add a marker at the location of your recorded measurements.</p>
         </div>
     </div>
-    <footer>
-        <a href="/">Return to Homepage</a>
-    </footer>
+
+  <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+  </script>
+
+  <footer id="footer">
+    <span>The Kenyan Astro © 2024</span>
+    <a href="https://github.com/Nyaguthii-C" target="_blank">
+        <i class="fab fa-github" style="color: #ffffff;"></i> GitHub
+    </a>
+    <a href="https://linkedin.com/in/nyaguthii-carol-a41659239" target="_blank">
+        <i class="fab fa-linkedin" style="color: #ffffff;"></i> LinkedIn
+    </a>
+  </footer>
+
 </body>
 
 </html>

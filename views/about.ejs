@@ -4,42 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About AstroSentinel</title>
-
-<link rel="stylesheet" href="landing.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
 
-  <nav class="header">
-   <div id="name">AstroSentinel</div>
-   <ul class="nav-links">
-     <li><a href="/">Home</a></li>
-     <li><a class="active" href="/about">About</a></li>
-     <li><a href="/measurement">Measurements</a></li>
-     <li><a href="/login">Login</a></li>
-     <li><a href="/signup">Signup</a></li>
-   </ul>
-  </nav>
+  <div class="topnav" id="myTopnav">
+    <a id="name">AstroSentinel</a>
+    <a href="/">Home</a>
+    <a href="/about"  class="active">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Resources
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">About Light pollution</a>
+        <a href="/guide">Measurents and Tools</a>
+        <a href="/measurement">Submitting data on Astrosentinel</a>
+      </div>
+    </div>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
 
   <section style="background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d'); background-size: cover;">
-    <h1 id="offer-title">What We Offer</h1>
     <div id="offer-item-container">
-        <div class="offer-item" id="offer-item-listing">
+        <h1 id="offer-title">What We Offer</h1>
+        <div class="offer-item">
           <h3>1. Data Visualization</h3>
           <p> Explore interactive data visualizations depicting light pollution levels across different regions. Gain insights into the extent of artificial light and its impact on celestial visibility.</p>
         </div>
 
-        <div class="offer-item"  id="offer-item-listing">
+        <div class="offer-item">
           <h3>2.Data Contribution</h3>
           <p> Join the AstroSentinel community and contribute your own light pollution measurements. Help build a comprehensive dataset to further our understanding of how artificial light at night affects the environment.</p>
         </div>
 
-        <div class="offer-item"  id="offer-item-listing">
+        <div class="offer-item">
           <h3>3. Learning and Education</h3>
           <p>Access resources and guides on light pollution monitoring techniques. Learn why monitoring light pollution is crucial for preserving natural ecosystems and promoting sustainable lighting practices.</p>
           </div>
     </div>
   </section>
+
+  <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+  </script>
   
   <footer id="footer">
     <span>The Kenyan Astro © 2024 </span>
