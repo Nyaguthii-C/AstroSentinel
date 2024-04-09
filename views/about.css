@@ -1,0 +1,26 @@
+#offer-item-container {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.offer-item {
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.offer-item p, ul {
+  text-align: left;
+}
