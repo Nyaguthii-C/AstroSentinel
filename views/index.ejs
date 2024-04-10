@@ -114,7 +114,7 @@
                         // Add a marker to the map if the server successfully saved it
                         if (response.ok) {
                             var marker = L.marker([lat, lng]).addTo(map);
-                            marker.bindPopup('<b>SQM Reading:</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
+                            marker.bindPopup('<b>SQM Reading (mag/arcsec²) :</b> ' + SQM_Reading + '<br><b>Bortle Class:</b> ' + Bortle_Class + '<br> <b>Date:</b> ' + Reading_Day).openPopup();
                             alert('Marker added successfully! Thank you for your contribution.')
                         } else {
                             alert('Failed to save marker. Please try again.');
