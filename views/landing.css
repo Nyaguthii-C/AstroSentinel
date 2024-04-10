@@ -15,21 +15,6 @@ body {
   padding: 14px 16px;
 }
 
-#header {
-  height: 60px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  color: #ffffff;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  transition: height 0.3s;
-}
-
 section {
   padding: 40px;
   text-align: center;
@@ -71,86 +56,6 @@ ul {
 #offer-title {
   text-align: center;
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-a:hover {
-  color: #9adaf3;
-}
-
-nav {
-
-  display: flex;
-
-  justify-content: space-around;
-
-  align-items: center;
-
-  min-height: 8vh;
-
-  background-color: rgba(0, 0, 0, 0.5);
-
-  width: 100%;
-
-}
-
-.nav-links {
-
-  display: flex;
-
-  justify-content: space-around;
-
-  max-width: 800em;
-
-  padding: 50px;
-
-}
-
-.nav-links li {
-
-  list-style: none;
-
-}
-
-.nav-links a {
-
-  color: white;
-
-  text-decoration: none;
-
-  letter-spacing: 3px;
-
-  font-weight: bold;
-
-  font-size: 16px;
-
-  padding: 14px 16px;
-
-}
-
-.nav-links a:hover:not(.active) {
-
-  background-color: lightseagreen;
-
-}
-
-.nav-links li a.active {
-
-  background-color: #4caf50;
-
-}
-
-@media screen and (max-width: 700px) {
-  #offer-item-container {
-    grid-template-columns: repeat(1,minmax(0,1fr));
-
-  }
-}
-
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -295,5 +200,13 @@ nav {
   }
   .topnav.responsive .dropdown-content a:hover {
     background-color:  #9adaf3;
+  }
+}
+
+/* decease font size on smaller screens */
+@media screen and (max-width: 600px) {
+
+  body {
+    font-size: 16px;
   }
 }
