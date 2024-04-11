@@ -57,6 +57,16 @@ ul {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: lightseagreen;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #9adaf3;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color:  rgba(0, 0, 0, 0.5);
@@ -208,5 +218,9 @@ ul {
 
   body {
     font-size: 16px;
+  }
+
+  footer {
+    display: grid;
   }
 }
