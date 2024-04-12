@@ -2,7 +2,8 @@ body {
   font-size: 20px;
   padding: 20px;
   margin: 0;
-  background-image: url('https://c.wallhere.com/photos/98/83/Bing_nature_landscape-2077985.jpg!d');
+  background: rgb(1,27,27);
+  background: linear-gradient(180deg, rgba(1,27,27,1) 0%, rgba(12,101,102,1) 61%, rgba(26,114,115,1) 100%);
 }
 
 .guide-container {
