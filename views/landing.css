@@ -48,6 +48,7 @@ footer {
 
 #map {
   margin-top: 80px;
+  z-index: 1;
 }
 
 .custom-margin {
@@ -88,6 +89,7 @@ a:hover {
   width: 100%;
   display: flex;
   align-items: center;
+  z-index: 20;
 }
 
 /* Style the links inside the navigation bar */
