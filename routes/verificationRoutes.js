@@ -6,8 +6,9 @@ const bcrypt = require('bcrypt');
 // Verification route
 router.get('/verify/:token', async (req, res) => {
   try {
-    // Extract the verification token from the URL parameters
-    const verificationToken = req.params.token;
+
+    // Extract the verification token from the URL parameters and decode it
+    const verificationToken = decodeURIComponent(req.params.token);
 
     // Find the user with the matching verification token
     const user = await User.findOne({ verificationToken });
@@ -19,7 +20,7 @@ router.get('/verify/:token', async (req, res) => {
       await user.save();
       res.redirect('/login'); // Redirect to the login page or any other page
     } else {
-      res.status(404).json({ error: 'Invalid verification token' });
+      res.status(404).json({ error: 'Invalid verification token', verificationToken });
     }
   } catch (error) {
     console.error('Error during email verification:', error);
