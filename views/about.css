@@ -2,10 +2,10 @@
   color: #fff;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /*align-items: center;
+  justify-content: center;*/
   gap: 2rem;
 }
 
@@ -23,4 +23,16 @@ h1 {
 
 .offer-item p, ul {
   text-align: left;
+}
+
+#offer-title {
+  grid-column: 1 / -1; /* Span from first to last column */
+}
+
+@media screen and (max-width: 600px) {
+  #offer-item-container {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
