@@ -33,6 +33,10 @@ router.get('/measurement', (req, res) => {
     res.render('measurement')
 });
 
+//display light pollution information
+router.get('/light-pollution', (req, res) => {
+    res.render('lightPollution')
+});
 
 
 module.exports = router;
