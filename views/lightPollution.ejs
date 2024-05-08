@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About AstroSentinel</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+
+  <div class="topnav" id="myTopnav">
+    <a id="name">AstroSentinel</a>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Resources
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/light-pollution">About Light pollution</a>
+        <a href="/guide" class="active">Measurents and Tools</a>
+        <a href="/measurement">Submitting data on Astrosentinel</a>
+      </div>
+    </div>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <section>
+    <div id="offer-item-container">
+        <h1 id="offer-title">Shedding Light on Light Pollution</h1>
+        <div class="offer-item">
+          <h3>What is Light Pollution?</h3>
+          <p>Light pollution is the excessive or misdirected artificial light produced by human activity. It not only obscures the stars and celestial bodies in the night sky but also disrupts ecosystems, affects human health, and wastes energy.</p>
+        </div>
+
+        <div class="offer-item">
+          <h3>Causes of Light Pollution</h3>
+            <ul>
+                <li>Urbanization</li>
+                <li>Outdoor Lighting Practices</li>
+                <li>Advertising and Signage</li>
+                <li>Industrialization</li>
+            </ul>
+        </div>
+
+        <div class="offer-item">
+          <h3>Effects of Light Pollution</h3>
+            <ul>
+                <li>Disrupted Ecosystems</li>
+                <li>Health Impacts</li>
+                <li>Disruption of Astronomical Observations</li>
+                <li>Energy Waste</li>
+                <li>Loss of Cultural Heritage</li>
+                
+            </ul>
+        </div>
+
+        <div class="offer-item">
+          <h3>Solutions to Light Pollution</h3>
+            <ul>
+                <li>Use Dark-Sky-Friendly Lighting</li>
+                <li>Light Regulations</li>
+                <li>Public Awareness and Education</li>
+                <li>Adaptive Lighting Technology</li>
+            </ul>
+        </div>
+
+        <div class="offer-item">
+          <h3>Conclusion</h3>
+          <p>Light pollution is a widespread and growing problem with significant environmental, health, and cultural implications. However, by implementing responsible lighting practices, promoting awareness, and adopting innovative solutions, we can minimize its impacts and preserve the beauty of the night sky for future generations.</p>
+        </div>
+
+        <div class="offer-item">
+          <h3>Additional Resources</h3>
+            <ul>
+                <li><a href="https://www.darksky.org/">DarkSky</a></li>
+                <li><a href="https://www.lightpollutionmap.info/">Light Pollution Map</a></li>
+                <li><a href="https://www.twanight.org/">The World at Night (TWAN)</a></li>
+            </ul>
+          </div>
+    </div>
+  </section>
+
+  <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+  </script>
+  
+  <footer id="footer">
+    <span>© 2024 The Kenyan Astro </span>
+    <a href="https://github.com/Nyaguthii-C" target="_blank">
+        <i class="fab fa-github" style="color: #ffffff;"></i> GitHub
+    </a>
+    <a href="https://linkedin.com/in/nyaguthii-carol-a41659239" target="_blank">
+        <i class="fab fa-linkedin" style="color: #ffffff;"></i> LinkedIn
+    </a>
+  </footer>
+
+</body>
