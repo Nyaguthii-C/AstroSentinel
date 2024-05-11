@@ -34,6 +34,7 @@ h1 {
   grid-column: 1 / -1; /* Span from first to last column */
 }
 
+/*hide image below paragraph in wiser screens*/
 #changePosition2 {
   display: none;
 }
@@ -43,10 +44,12 @@ h1 {
     display: flex;
     flex-direction: column;
   }
+  /*display image below paragraph in smaller screen*/
   #changePosition2 {
     display: contents;  
   }
 
+  /* Hide image above paragraph in smaller screen*/
   #changePosition1 {
     display: none;
   }
