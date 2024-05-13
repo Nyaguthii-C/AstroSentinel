@@ -42,6 +42,12 @@ router.post('/login', limiter, async (req, res) => {
     if (passwordMatch) {
       // Check if the user's email is verified
       if (user.isEmailVerified) {
+        //store user data in session
+        req.session.user = {
+          _id: user._id,
+          username: user.username,
+          email: user.email,
+        };
         // Login successful
         return res.json({ message: 'Login successful' });
       } else {
