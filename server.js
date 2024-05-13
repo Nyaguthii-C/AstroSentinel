@@ -9,7 +9,27 @@ const pageRoutes = require('./routes/pageroutes')
 const verificationRoutes = require('./routes/verificationRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000; 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session); //for session
+const dotenv = require('dotenv').config()
+const secret = process.env.AUTH_SESSION_SECRET; // session secret saved in environmental variable
 
+
+// Configure express-session with connect-mongo
+app.use(session({
+    secret: secret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        // set expiration time for session cookie in milliseconds, set to 1 hour
+        expires: new Date(Date.now() + 3600000),
+    },
+    store: new MongoStore({ 
+        mongooseConnection: mongoose.connection, // connection to database
+        autoRemove: 'interval', // Remove expired sessions on a regular basis
+        autoRemoveInterval: 60 // Interval in minutes
+    })
+}));
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
