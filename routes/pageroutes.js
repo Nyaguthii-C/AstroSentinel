@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const limiter = require('./ratesLimit')
+const limiter = require('./ratesLimit');
+const authenticationMiddleware = require('../middleware/authenticationMiddleware');
 
 
 // display landing page
@@ -18,8 +19,8 @@ router.get('/guide', (req, res) => {
    res.render('guide')
 });
 
-// display map for adding  markers with rate limit
-router.get('/index', limiter, (req, res) => {
+// display map for adding  markers with rate limit, (requires authentication)
+router.get('/index', authenticationMiddleware, limiter, (req, res) => {
     res.render('index')
 });
 
