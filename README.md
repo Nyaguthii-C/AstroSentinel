@@ -58,6 +58,7 @@ Setting up Google OAuth2 Credentials:
      REFRESH_TOKEN=PASTE_REFRESH_TOKEN_HERE
      CLIENT_SECRET=PASTE_CLIENT_SECRET_HERE
      CLIENT_ID=PASTE_CLIENT_ID_HERE
+     AUTH_SESSION_SECRET=PASTE_SESSION_SECRET_HERE
      ```
    - These values can be obtained from Google Developer Console. For more guidance on creating OAuth 2.0 API Credentials, refer to [Creating OAuth 2.0 API Credentials](https://dev.to/chandrapantachhetri/sending-emails-securely-using-node-js-nodemailer-smtp-gmail-and-oauth2-g3a).
 
