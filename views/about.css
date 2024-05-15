@@ -46,7 +46,7 @@ h1 {
   }
   /*display image below paragraph in smaller screen*/
   #changePosition2 {
-    display: contents;  
+    display: inline;  
   }
 
   /* Hide image above paragraph in smaller screen*/
