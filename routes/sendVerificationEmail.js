@@ -40,7 +40,8 @@ async function sendVerificationEmail(email, verificationToken) {
             from: process.env.EMAIL,
             to: email,
             subject: 'AstroSentinel - Email Verification',
-            text: `Thank you for signing up on AstroSentinel./n Click the following link to verify your email: https://www.kenyanastro.tech/verify/${encodeURIComponent(verificationToken)}`,
+            text: `Thank you for signing up on AstroSentinel.
+            Click the following link to verify your email: https://www.kenyanastro.tech/verify/${encodeURIComponent(verificationToken)}`,
         };
 
         await transporter.sendMail(mailOptions);
