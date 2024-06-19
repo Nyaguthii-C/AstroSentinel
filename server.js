@@ -24,11 +24,6 @@ app.use(session({
         // set expiration time for session cookie in milliseconds, set to 1 hour
         expires: new Date(Date.now() + 3600000)
     },
-   /** cookie: {
-        maxAge: 3600000, // 1 hour in milliseconds
-        httpOnly: true,
-        secure: true//process.env.NODE_ENV === 'production', // Ensure cookies are secure in production
-    },**/
     store: new MongoStore({ 
         mongooseConnection: mongoose.connection, // connection to database
         autoRemove: 'interval', // Remove expired sessions on a regular basis
