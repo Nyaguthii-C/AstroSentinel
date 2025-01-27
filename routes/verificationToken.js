@@ -1,21 +1,20 @@
-// module to generate a verification token using bcrypt
-const bcrypt = require('bcrypt');
+// generate a verification token using jwt
+const jwt = require('jsonwebtoken');
+
+// Secret key for JWT signing (you should keep this private and secure)
+const secretKey = process.env.JWT_SECRET;
 
 function generateVerificationToken(username, email) {
-  // Generate a random string for additional randomness
-  const randomString = Math.random().toString(36).substring(7);
+  // Create the payload for the token
+  const payload = { username, email };
 
-  // Encode the token data to ensure URL safety
-  const tokenData = encodeURIComponent(username + email + randomString);
+  // Set token expiration time (optional, e.g., 1 hour)
+  const options = { expiresIn: '1h' };
 
-  //const tokenData = username + email + randomString;
-
-
-  // Hash the token data using bcrypt
-  const verificationToken = bcrypt.hashSync(tokenData, 10);
+  // Sign the token with the payload, secret, and options
+  const verificationToken = jwt.sign(payload, secretKey, options);
 
   return verificationToken;
 }
 
-
-module.exports =  generateVerificationToken;
+module.exports = generateVerificationToken;
