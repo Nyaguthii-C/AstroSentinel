@@ -109,5 +109,4 @@ router.post('/signup', limiter, async (req, res) => {
   }
 });
 
-
 module.exports = router;
