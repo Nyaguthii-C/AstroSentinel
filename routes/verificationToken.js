@@ -1,7 +1,7 @@
 // generate a verification token using jwt
 const jwt = require('jsonwebtoken');
 
-// Secret key for JWT signing (you should keep this private and secure)
+// Secret key for JWT signing
 const secretKey = process.env.JWT_SECRET;
 
 function generateVerificationToken(username, email) {
