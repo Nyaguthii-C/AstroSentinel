@@ -10,12 +10,8 @@ mongoose.set('strictQuery', false);
 // Connection to the database
 const dburl = process.env.DB_URL;
 
-const connectionparams= {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}
 
-mongoose.connect(dburl, connectionparams)
+mongoose.connect(dburl)
   .then(() => {
     console.log('Connected to the database');
   })
