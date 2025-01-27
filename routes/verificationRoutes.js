@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
 //const generateVerificationToken = require('./generateVerificationToken');
+const jwt = require('jsonwebtoken');
 
 // Verification route
 router.get('/verify/:token', async (req, res) => {
