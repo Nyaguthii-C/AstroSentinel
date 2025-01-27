@@ -10,9 +10,10 @@ const verificationRoutes = require('./routes/verificationRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000; 
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session); //for session
+const MongoStore = require('connect-mongo'); //for session
 const dotenv = require('dotenv').config()
 const secret = process.env.AUTH_SESSION_SECRET; // session secret saved in environmental variable
+const dburl = process.env.DB_URL;
 
 
 // Configure express-session with connect-mongo
@@ -29,7 +30,7 @@ app.use(session({
         secure: true
     },
     store: new MongoStore({ 
-        mongooseConnection: mongoose.connection, // connection to database
+        mongoUrl: dburl, // connection to database
         autoRemove: 'interval', // Remove expired sessions on a regular basis
         autoRemoveInterval: 60 // Interval in minutes
     })
